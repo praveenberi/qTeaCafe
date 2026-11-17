@@ -7,6 +7,7 @@
 import 'dotenv/config';
 import { PrismaClient, Prisma } from '@prisma/client';
 import bcrypt from 'bcryptjs';
+import { ABOUT } from './about';
 
 const prisma = new PrismaClient();
 const demo = process.argv.includes('--demo');
@@ -43,6 +44,7 @@ async function base() {
   };
   for (const [key, p] of Object.entries(policies))
     await prisma.contentBlock.upsert({ where: { key }, create: { key, title: p.title, body: p.body }, update: {} });
+  await prisma.contentBlock.upsert({ where: { key: 'home.about' }, create: { key: 'home.about', title: ABOUT.title, body: ABOUT }, update: {} });
   await prisma.menu.count().then(async (n) => { if (!n) await prisma.menu.create({ data: { name: 'Main Menu' } }); });
 }
 
