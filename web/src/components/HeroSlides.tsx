@@ -9,8 +9,8 @@ import { cn } from '@/lib/format';
 export interface HeroSlide { url: string; alt?: string; x: number; y: number; fit: 'cover' | 'contain'; hideText?: boolean }
 
 export const DEFAULT_SLIDES: HeroSlide[] = [
-  { url: '/hero-1.jpg', alt: 'Q Tea Cafe logo — a steaming cup of tea framed by tea leaves', x: 50, y: 30, fit: 'contain', hideText: true },
-  
+  { url: '/hero-1.webp', alt: 'Q Tea Cafe — grilled sandwich with chutneys and a latte. Good Food, Great Tea, Better Together', x: 50, y: 40, fit: 'contain', hideText: true },
+  { url: '/hero-2.webp', alt: 'Q Tea Cafe — waffles, latte, iced tea and a panini', x: 50, y: 40, fit: 'contain', hideText: true },
 ];
 
 export const normalizeSlide = (s: any): HeroSlide => ({

@@ -37,10 +37,10 @@ export default function Home() {
   const q = useHome();
   const { add, modal } = useAddToCart();
   const r = q.data?.restaurant;
-  useSeo(r?.seo?.title || 'Q Tea Cafe | Tea, Chai & Snacks', r?.seo?.description || r?.description || 'Discover Q Tea Cafe — freshly brewed chai, specialty teas, cold brews and tasty snacks. Dine in, take away or order online.', r?.seo?.ogImage || r?.heroImageUrl || `${location.origin}/hero-1.jpg`);
+  useSeo(r?.seo?.title || 'Q Tea Cafe | Tea, Chai & Snacks', r?.seo?.description || r?.description || 'Discover Q Tea Cafe — freshly brewed chai, specialty teas, cold brews and tasty snacks. Dine in, take away or order online.', r?.seo?.ogImage || r?.heroImageUrl || `${location.origin}/hero-1.webp`);
   const ld = useMemo(() => q.data ? ({
     '@context': 'https://schema.org', '@type': 'Restaurant', name: r.name, description: r.description ?? undefined, url: location.origin,
-    telephone: r.phone ?? undefined, email: r.email ?? undefined, image: r.heroImageUrl ?? `${location.origin}/hero-1.jpg`, servesCuisine: ['Tea', 'Chai', 'Cafe', 'Snacks'],
+    telephone: r.phone ?? undefined, email: r.email ?? undefined, image: r.heroImageUrl ?? `${location.origin}/hero-1.webp`, servesCuisine: ['Tea', 'Chai', 'Cafe', 'Snacks'],
     address: r.address ? { '@type': 'PostalAddress', streetAddress: r.address, addressLocality: 'Singapore', addressCountry: 'SG' } : undefined,
     geo: r.latitude != null ? { '@type': 'GeoCoordinates', latitude: r.latitude, longitude: r.longitude } : undefined,
     hasMenu: `${location.origin}/menu`, acceptsReservations: q.data.config.reservationsEnabled,
