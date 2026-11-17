@@ -42,7 +42,7 @@ export default function Info({ page }: { page: 'about' | 'gallery' | 'offers' | 
                   {!d.restaurant.address && !d.restaurant.phone && !d.restaurant.email && <p className="text-muted">Contact details will be published soon.</p>}
                   <div className="pt-4"><h2 className="mb-3 text-xl">Opening hours</h2><HoursList hours={d.restaurant.openingHours} /></div>
                 </div>
-                {d.restaurant.mapEmbedUrl && /^https:\/\/(www\.)?google\.com\/maps\/embed/.test(d.restaurant.mapEmbedUrl) && <iframe title="Map" src={d.restaurant.mapEmbedUrl} loading="lazy" className="h-80 w-full rounded-2xl border border-border" />}
+                {d.restaurant.mapEmbedUrl && /^https:\/\/(www\.)?google\.com\/maps(\/embed|\?.*output=embed)/.test(d.restaurant.mapEmbedUrl) && <iframe title="Map" src={d.restaurant.mapEmbedUrl} loading="lazy" className="h-80 w-full rounded-2xl border border-border" />}
               </div>
             );
           }}

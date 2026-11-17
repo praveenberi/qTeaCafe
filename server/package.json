@@ -14,6 +14,7 @@
     "db:seed": "tsx prisma/seed.ts",
     "db:seed:demo": "tsx prisma/seed.ts --demo",
     "db:seed:menu": "tsx prisma/seed-menu.ts",
+    "db:seed:cafe": "tsx prisma/seed-cafe.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },

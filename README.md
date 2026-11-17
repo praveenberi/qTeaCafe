@@ -13,6 +13,7 @@ npm run db:local          # embedded PostgreSQL on :5433 (or use your own / dock
 npm run db:push           # create tables (production uses `npm run db:deploy` migrations)
 npm run db:seed:demo      # demo staff, sample items, tables (use `db:seed` for a clean production seed)
 npm run db:seed:menu      # Q Tea Cafe starter menu: chai, teas, coolers, coffee, snacks, bakes
+npm run db:seed:cafe      # address, phone, hours 10:30-22:30, map, INR / Asia/Kolkata
 npm run dev               # API on :4000, docs at /api/docs
 
 cd ../web && npm install && npm run dev    # site on http://localhost:5173, admin at /admin/login

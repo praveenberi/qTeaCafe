@@ -192,9 +192,9 @@ export default function Home() {
         <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-6">
             <div><h3 className="mb-3 flex items-center gap-2 text-lg"><Clock className="h-5 w-5 text-accent" /> Opening hours</h3><HoursList hours={r.openingHours} /></div>
-            <div><h3 className="mb-2 flex items-center gap-2 text-lg"><MapPin className="h-5 w-5 text-accent" /> Find us</h3><p className="whitespace-pre-line text-sm text-muted">{r.address || 'Address coming soon.'}</p>{r.phone && <p className="mt-1 text-sm">{r.phone}</p>}</div>
+            <div><h3 className="mb-2 flex items-center gap-2 text-lg"><MapPin className="h-5 w-5 text-accent" /> Find us</h3><p className="whitespace-pre-line text-sm text-muted">{r.address || 'Address coming soon.'}</p>{r.phone && <p className="mt-1 text-sm"><a href={`tel:${r.phone}`} className="hover:underline">{r.phone}</a></p>}{r.address && <a href={r.social?.maps || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.address)}`} target="_blank" rel="noreferrer" className="mt-2 inline-block text-sm font-medium underline-offset-4 hover:underline">Get directions ↗</a>}</div>
           </div>
-          {r.mapEmbedUrl && /^https:\/\/(www\.)?google\.com\/maps\/embed/.test(r.mapEmbedUrl)
+          {r.mapEmbedUrl && /^https:\/\/(www\.)?google\.com\/maps(\/embed|\?.*output=embed)/.test(r.mapEmbedUrl)
             ? <iframe title="Map to the restaurant" src={r.mapEmbedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-72 w-full rounded-2xl border border-border" />
             : <div className="grid h-72 place-items-center rounded-2xl border border-dashed border-border text-sm text-muted">Map will appear once configured.</div>}
         </div>
